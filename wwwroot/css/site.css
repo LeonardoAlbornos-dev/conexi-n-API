@@ -1,0 +1,124 @@
+:root {
+    color-scheme: light;
+    --ink: #202638;
+    --muted: #6d7485;
+    --surface: #ffffff;
+    --page: #f4f6fb;
+    --line: #e8eaf1;
+    --primary: #5546d7;
+    --primary-dark: #4033b5;
+    --shadow: 0 16px 42px rgba(35, 42, 72, .08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-width: 320px;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(117, 102, 245, .10), transparent 30rem),
+        var(--page);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.explorer {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 58px 0 28px;
+}
+
+.page-header { max-width: 720px; margin: 0 auto 38px; text-align: center; }
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+}
+.page-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -.045em;
+}
+.page-header p { margin: 16px 0 0; color: var(--muted); font-size: 1.04rem; line-height: 1.6; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.content-card {
+    display: flex;
+    min-width: 0;
+    min-height: 390px;
+    flex-direction: column;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(226, 229, 239, .9);
+    border-radius: 22px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+.card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card-icon {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border-radius: 15px;
+    background: #f0efff;
+    font-size: 1.55rem;
+}
+.card-category { color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .12em; }
+.content-card h2 { margin: 19px 0 14px; font-size: 1.28rem; letter-spacing: -.02em; }
+.card-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.quote-text { margin: 0; font-size: 1.22rem; line-height: 1.65; font-weight: 600; }
+.quote-author { margin: 14px 0 0; color: var(--primary); font-weight: 700; }
+.fact-content { justify-content: flex-start; }
+.fact-content p { margin: 0; font-size: 1.12rem; line-height: 1.7; }
+.status-message { min-height: 20px; margin: 12px 0; color: var(--muted); font-size: .82rem; }
+.status-message.error { color: #c0394b; }
+.action-button {
+    display: flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--primary);
+    color: white;
+    font: inherit;
+    font-size: .93rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease, opacity .18s ease;
+}
+.action-button:hover:not(:disabled) { background: var(--primary-dark); transform: translateY(-1px); }
+.action-button:focus-visible { outline: 3px solid rgba(85, 70, 215, .28); outline-offset: 3px; }
+.action-button:disabled { cursor: wait; opacity: .62; }
+.image-frame {
+    display: grid;
+    width: 100%;
+    height: 205px;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #f1f3f8;
+}
+.animal-image { width: 100%; height: 100%; object-fit: cover; }
+.animal-image[hidden] { display: none; }
+.image-placeholder { padding: 15px; color: var(--muted); text-align: center; font-size: .9rem; }
+.dog-card .card-icon { background: #fff3e8; }
+.cat-card .card-icon { background: #fff0f6; }
+.fact-card .card-icon { background: #fff8dc; }
+.page-footer { padding: 26px 0 0; color: var(--muted); text-align: center; font-size: .82rem; }
+
+@media (max-width: 700px) {
+    .explorer { width: min(100% - 28px, 520px); padding-top: 38px; }
+    .page-header { margin-bottom: 26px; }
+    .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+    .content-card { min-height: 350px; padding: 21px; }
+}

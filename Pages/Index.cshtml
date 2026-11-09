@@ -1,0 +1,86 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Explorador de contenido aleatorio";
+}
+
+<main class="explorer">
+    <header class="page-header">
+        <span class="eyebrow">PROGRAMACIÓN WEB III</span>
+        <h1>Explorador de contenido aleatorio</h1>
+        <p>Descubre citas, animales y datos curiosos consultando cuatro APIs públicas.</p>
+    </header>
+
+    <section class="cards-grid" aria-label="Contenido aleatorio">
+        <article class="content-card quote-card" aria-labelledby="quote-heading">
+            <div class="card-top">
+                <div class="card-icon" aria-hidden="true">❝</div>
+                <span class="card-category">INSPIRACIÓN</span>
+            </div>
+            <h2 id="quote-heading">Citas y autores</h2>
+            <div class="card-content" aria-live="polite" aria-atomic="true">
+                <p id="quote-text" class="quote-text">Cargando...</p>
+                <p id="quote-author" class="quote-author"></p>
+            </div>
+            <p id="quote-status" class="status-message" role="status">Cargando...</p>
+            <button id="quote-button" class="action-button" type="button">
+                Obtener otra cita <span aria-hidden="true">↻</span>
+            </button>
+        </article>
+
+        <article class="content-card dog-card" aria-labelledby="dog-heading">
+            <div class="card-top">
+                <div class="card-icon" aria-hidden="true">🐶</div>
+                <span class="card-category">MASCOTAS</span>
+            </div>
+            <h2 id="dog-heading">Imágenes de perros</h2>
+            <div class="image-frame">
+                <img id="dog-image" class="animal-image" alt="Fotografía aleatoria de un perro" hidden />
+                <p id="dog-placeholder" class="image-placeholder">Cargando imagen...</p>
+            </div>
+            <p id="dog-status" class="status-message" role="status">Cargando...</p>
+            <button id="dog-button" class="action-button" type="button">
+                Mostrar otro perro <span aria-hidden="true">↻</span>
+            </button>
+        </article>
+
+        <article class="content-card cat-card" aria-labelledby="cat-heading">
+            <div class="card-top">
+                <div class="card-icon" aria-hidden="true">🐱</div>
+                <span class="card-category">MASCOTAS</span>
+            </div>
+            <h2 id="cat-heading">Imágenes de gatos</h2>
+            <div class="image-frame">
+                <img id="cat-image" class="animal-image" alt="Fotografía aleatoria de un gato" hidden />
+                <p id="cat-placeholder" class="image-placeholder">Cargando imagen...</p>
+            </div>
+            <p id="cat-status" class="status-message" role="status">Cargando...</p>
+            <button id="cat-button" class="action-button" type="button">
+                Mostrar otro gato <span aria-hidden="true">↻</span>
+            </button>
+        </article>
+
+        <article class="content-card fact-card" aria-labelledby="fact-heading">
+            <div class="card-top">
+                <div class="card-icon" aria-hidden="true">💡</div>
+                <span class="card-category">¿SABÍAS QUE...?</span>
+            </div>
+            <h2 id="fact-heading">Datos curiosos</h2>
+            <div class="card-content fact-content" aria-live="polite" aria-atomic="true">
+                <p id="fact-text">Cargando...</p>
+            </div>
+            <p id="fact-status" class="status-message" role="status">Cargando...</p>
+            <button id="fact-button" class="action-button" type="button">
+                Mostrar otro dato <span aria-hidden="true">↻</span>
+            </button>
+        </article>
+    </section>
+
+    <footer class="page-footer">
+        <p>Contenido proporcionado en tiempo real por APIs públicas.</p>
+    </footer>
+</main>
+
+@section Scripts {
+    <script src="~/js/explorador.js" asp-append-version="true"></script>
+}
